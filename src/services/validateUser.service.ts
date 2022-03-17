@@ -1,10 +1,12 @@
 import users from "../data/users.json";
+import { IUserLogin } from "../pages/LoginPage/useLoginPage";
 
-export default function validateUser() {
-  // que compare que los datos son iguales
-  // que ratifique que es la misma contraseña
-  //me retorna el user o undefined
-  //   return users.find((userExist) => {
-  //     user.email === userExist.email ? userExist.userName : undefined;
-  //   });
+export default function validateUser(user: IUserLogin) {
+  const checkedUser = users.find(
+    (userRegistered) =>
+      userRegistered.email === user.email &&
+      userRegistered.password === user.password
+  );
+
+  return checkedUser ? checkedUser : console.log("no estás loggeado");
 }

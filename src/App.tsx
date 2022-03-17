@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import { AuthContext } from "./auth/AuthContext";
 import { authReducer } from "./auth/authReducer";
-import Router from "./constants/Router";
+import Router from "./routes/Router";
 import { defaultSession } from "./services/session.service";
 
 function App() {

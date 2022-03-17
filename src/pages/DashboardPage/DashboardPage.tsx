@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../../auth/authContext";
+import { AuthContext } from "../../auth/AuthContext";
 
 export default function DashboardPage() {
-  const { email } = useContext(AuthContext);
+  const { state } = useContext(AuthContext);
   return (
     <div>
-      <p>Welcome {email}</p>
+      <p>Welcome {state.userName}</p>
     </div>
   );
 }
