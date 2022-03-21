@@ -4,6 +4,7 @@ import DashboardPage from "../pages/DashboardPage/DashboardPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import Root from "../pages/Root/Root";
+import SignUpPage from "../pages/SignUpPage/SignUpPage";
 
 export default function Router() {
   return (
@@ -11,6 +12,7 @@ export default function Router() {
       <Routes>
         <Route path="dashboard/*" element={<DashboardPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/" element={<Root />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

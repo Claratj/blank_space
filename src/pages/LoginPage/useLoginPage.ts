@@ -9,7 +9,7 @@ export interface IUserLogin {
 }
 
 export default function useLoginPage() {
-  const [values, setValues] = useState({
+  const [user, setUser] = useState({
     email: "",
     password: "",
   });
@@ -17,24 +17,19 @@ export default function useLoginPage() {
   const navigate = useNavigate();
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setValues({
-      ...values,
+    setUser({
+      ...user,
       [e.currentTarget.name]: e.currentTarget.value,
     });
   }
 
   function handleSubmit(e: any) {
     e.preventDefault();
-    // hago comprobación de que existe, si sí recupero de users el userName y lo meto sessionStorage.
 
-    const checkedUser = validateUser(values);
-    const action = {
-      type: "[auth] Login",
-    };
+    const checkedUser = validateUser(user);
 
     if (checkedUser) {
-      console.log("existe checkedUser");
-      dispatch(action);
+      dispatch("[auth] Login");
       navigate("/dashboard", {
         replace: true,
       });
@@ -44,5 +39,6 @@ export default function useLoginPage() {
   return {
     handleInputChange,
     handleSubmit,
+    isButtonDisabled: !(user.email !== "" && user.password !== ""),
   };
 }
