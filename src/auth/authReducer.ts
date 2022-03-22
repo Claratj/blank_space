@@ -2,10 +2,12 @@ import { defaultSession, storageKey } from "../services/session.service";
 import { IAction, IAuthState } from "./AuthContext";
 
 export const authReducer = (state: IAuthState, action: IAction) => {
-  switch (action.type) {
+  const { type, payload } = action;
+
+  switch (type) {
     case "[auth] Login":
       const loginSession = {
-        ...state,
+        ...payload,
         logged: true,
       };
       sessionStorage.setItem(storageKey, JSON.stringify(loginSession));

@@ -3,16 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
 
 export default function Root() {
-  const context = useContext(AuthContext);
+  const { state } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (context?.state.logged) {
+    if (state.logged) {
       navigate("/dashboard");
     } else {
       navigate("/login");
     }
-  }, [context, navigate]);
+  }, [state, navigate]);
 
   return null;
 }

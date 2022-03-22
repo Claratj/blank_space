@@ -1,10 +1,11 @@
 import axios from "axios";
 import { IUser } from "../Entities/types";
 
-export async function getUsers(): Promise<IUser[]> {
+export async function getUsers(): Promise<any> {
   return await axios
     .get("https://blankspace.com/users")
     .then((res) => res.data)
+    .then((data) => data.users)
     .catch((err) => console.error(err));
 }
 

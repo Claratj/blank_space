@@ -1,9 +1,9 @@
+import { Action } from "history";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../../api-client/api";
-import { AuthContext } from "../../auth/AuthContext";
-import dummy_getUsers_response from "../../mocks/serverResponses/dummy_getUsers_response";
-import transformResponses from "../../services/transformResponses.service";
+import { ActionType, AuthContext } from "../../auth/AuthContext";
+import updateUsersLogged from "../../services/updateUsersLogged.service";
 
 // import storeService from "../../services/mocks.service";
 import validatePassword from "../../services/validatePassword/validatePassword.service";
@@ -31,9 +31,14 @@ export default function useSignUpPage() {
     const user = { userName, email, password };
 
     createUser(user).then();
-    transformResponses(user);
+    updateUsersLogged(user);
 
-    dispatch("[auth] Login");
+    const action = {
+      type: ActionType.LOGIN,
+      payload: newUser,
+    };
+
+    dispatch(action);
 
     navigate("/dashboard", {
       replace: true,

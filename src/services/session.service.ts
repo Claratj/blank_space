@@ -1,7 +1,8 @@
+import { IAuthState } from "../auth/AuthContext";
+
 export const storageKey = "[auth-login]";
 
 export const defaultSession = {
-  userName: "",
   logged: false,
 };
 

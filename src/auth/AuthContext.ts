@@ -1,18 +1,22 @@
 import React, { createContext, Dispatch } from "react";
+import { IUser } from "../Entities/types";
 import { defaultSession } from "../services/session.service";
 
 export interface IAuthState {
-  userName: string;
   logged: boolean;
+  email?: string;
+  password?: string;
+  userName?: string;
 }
 
-enum ActionType {
+export enum ActionType {
   LOGIN = "[auth] Login",
   LOGOUT = "[auth] Logout",
 }
 
 export type IAction = {
   type: ActionType;
+  payload: IUser;
 };
 
 export interface IAuthStateContext {

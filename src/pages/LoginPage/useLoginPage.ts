@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../auth/AuthContext";
+import { ActionType, AuthContext } from "../../auth/AuthContext";
 import validateUser from "../../services/validateUser.service";
 
 export interface IUserLogin {
@@ -29,7 +29,12 @@ export default function useLoginPage() {
     const checkedUser = validateUser(user);
 
     if (checkedUser) {
-      dispatch("[auth] Login");
+      const action = {
+        type: ActionType.LOGIN,
+        payload: user,
+      };
+      dispatch(action);
+
       navigate("/dashboard", {
         replace: true,
       });

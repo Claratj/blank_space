@@ -4,10 +4,13 @@ import Header from "../../components/core/Header/Header";
 
 export default function DashboardPage() {
   const { state } = useContext(AuthContext);
+
+  console.log(state);
+
   return (
     <div>
       <Header />
-      <p>Welcome {state.userName}</p>
+      <p>Welcome {state.email}</p>
     </div>
   );
 }
