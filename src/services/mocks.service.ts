@@ -1,6 +1,6 @@
 import React from "react";
 import * as fs from "fs";
-import dummy_getUsers_response from "../mocks/serverResponses/dummy_getUsers_response";
+// import dummy_getUsers_response from "../mocks/serverResponses/dummy_getUsers_response";
 import updateUsersLogged from "./updateUsersLogged.service";
 
 interface INewUser {

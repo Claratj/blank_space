@@ -12,7 +12,7 @@ export default function Root() {
     } else {
       navigate("/login");
     }
-  }, [state, navigate]);
+  }, [state.logged, navigate]);
 
   return null;
 }

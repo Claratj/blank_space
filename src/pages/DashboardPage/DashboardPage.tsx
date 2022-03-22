@@ -5,7 +5,7 @@ import Header from "../../components/core/Header/Header";
 export default function DashboardPage() {
   const { state } = useContext(AuthContext);
 
-  console.log(state);
+  console.log("este es el state en el dashboard :", state);
 
   return (
     <div>
